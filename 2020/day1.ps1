@@ -1,42 +1,43 @@
 $aocYear = "2020"
 $aocDay = 1
+$inputFile = "day1input.txt"
 Set-Location $PSScriptRoot
 Write-Host "********************************************" -ForegroundColor Green
 Write-Host "* Advent of Code $aocYear - Solution for Day $aocDay *" -ForegroundColor Yellow
 Write-Host "********************************************" -ForegroundColor Green
-# https://adventofcode.com/2020/day/1/input
-[int[]]$inputData = Get-Content day1input.txt
-
-Write-Host "Part 1" -ForegroundColor Yellow
+[int[]]$inputData = Get-Content $inputFile
 $breakPart = $false
-foreach ($i in $inputData){
-    if ($breakPart){Break}
-    foreach ($x in $inputData){
-        if (($i+$x) -eq 2020){
-            Write-Host "Factors are $i and $x"
-            $Sum = $i * $x
-            Write-Host "Multiplied Sum is $Sum"    
-            $breakPart= $true
-        }
-    }
-}
-Write-Host "********************************************" -ForegroundColor Green
-#Part 2
-Write-Host "Part 2" -ForegroundColor Yellow
-$breakPart = $false
-foreach ($i in $inputData){
-    if ($breakPart){Break}
-    foreach ($x in $inputData){
-        if ($breakPart){Break}
-        foreach ($y in $inputData){
-            if (($i+$x+$y) -eq 2020){
-                Write-Host "Factors are $i , $x and $y"
-                $Sum = $i * $x * $y
-                Write-Host "Multiplied Sum is $Sum"    
-                $breakPart= $true
+$timer = Measure-Command {
+    foreach ($i in $inputData) {
+        if ($breakPart) { Break }
+        foreach ($x in $inputData) {
+            if (($i + $x) -eq $aocYear) {
+                Write-Host "Factors are $i and $x"
+                Write-Host "Product is $($i * $x)"    
+                $breakPart = $true
             }
         }
-        
     }
 }
+Write-Host "Execution took $([math]::Round($timer.TotalMilliseconds)) milliseconds"
+
+Write-Host "********************************************" -ForegroundColor Green
+Write-Host "Part 2" -ForegroundColor Yellow
+$breakPart = $false
+$timer = Measure-Command {
+    foreach ($i in $inputData) {
+        if ($breakPart) { Break }
+        foreach ($x in $inputData) {
+            if ($breakPart) { Break }
+            foreach ($y in $inputData) {
+                if (($i + $x + $y) -eq $aocYear) {
+                    Write-Host "Factors are $i, $x and $y"
+                    Write-Host "Product is $($i * $x * $y)"    
+                    $breakPart = $true
+                }
+            }
+        }
+    }
+}
+Write-Host "Execution took $([math]::Round($timer.TotalMilliseconds)) milliseconds"
 Write-Host "********************************************" -ForegroundColor Green
