@@ -5,7 +5,7 @@ Write-Host "********************************************" -ForegroundColor Green
 Write-Host "* Advent of Code $aocYear - Solution for Day $aocDay *" -ForegroundColor Yellow
 Write-Host "********************************************" -ForegroundColor Green
 # https://adventofcode.com/2020/day/1/input
-[int[]]$inputData = Get-Content input.txt
+[int[]]$inputData = Get-Content day1input.txt
 
 Write-Host "Part 1" -ForegroundColor Yellow
 $breakPart = $false
