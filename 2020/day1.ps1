@@ -1,9 +1,13 @@
+$aocYear = "2020"
+$aocDay = 1
 Set-Location $PSScriptRoot
+Write-Host "********************************************" -ForegroundColor Green
+Write-Host "* Advent of Code $aocYear - Solution for Day $aocDay *" -ForegroundColor Yellow
+Write-Host "********************************************" -ForegroundColor Green
 # https://adventofcode.com/2020/day/1/input
-
 [int[]]$inputData = Get-Content input.txt
 
-Write-Host "Part 1"
+Write-Host "Part 1" -ForegroundColor Yellow
 $breakPart = $false
 foreach ($i in $inputData){
     if ($breakPart){Break}
@@ -16,9 +20,9 @@ foreach ($i in $inputData){
         }
     }
 }
-
+Write-Host "********************************************" -ForegroundColor Green
 #Part 2
-Write-Host "Part 2"
+Write-Host "Part 2" -ForegroundColor Yellow
 $breakPart = $false
 foreach ($i in $inputData){
     if ($breakPart){Break}
@@ -35,3 +39,4 @@ foreach ($i in $inputData){
         
     }
 }
+Write-Host "********************************************" -ForegroundColor Green
