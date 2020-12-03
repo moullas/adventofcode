@@ -21,14 +21,14 @@ $timer = Measure-Command {
         }
     }
 }
-Write-Host "Found $validPasswords valid passwords in $([math]::Round($timer.TotalMilliseconds)) milliseconds"
+Write-Host "Found $validPasswords valid passwords"
+Write-Host "Elapsed time $([math]::Round($timer.TotalMilliseconds)) milliseconds"
 Write-Host "********************************************" -ForegroundColor Green
 
 Write-Host "Part 2" -ForegroundColor Yellow
 $validPasswords = 0
 $timer = Measure-Command {
     foreach ($dataLine in $inputData) {
-        #$resultCount = 0
         $data = ($dataLine.Replace(":", "")).Replace("-", " ").Split(" ")
         $passPos1 = [int]($data[0]) - 1 #-1 to account for non index-zero
         $passPos2 = [int]($data[1]) - 1
@@ -36,5 +36,6 @@ $timer = Measure-Command {
         if (($pass.Substring($passPos1, 1) -eq $data[2]) -xor ($pass.Substring($passPos2, 1) -eq $data[2])) { $validPasswords++ }
     }
 }
-Write-Host "Found $validPasswords valid passwords in $([math]::Round($timer.TotalMilliseconds)) milliseconds"
+Write-Host "Found $validPasswords valid passwords"
+Write-Host "Elapsed time $([math]::Round($timer.TotalMilliseconds)) milliseconds"
 Write-Host "********************************************" -ForegroundColor Green

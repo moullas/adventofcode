@@ -20,7 +20,7 @@ $timer = Measure-Command {
         }
     }
 }
-Write-Host "Execution took $([math]::Round($timer.TotalMilliseconds)) milliseconds"
+Write-Host "Elapsed time $([math]::Round($timer.TotalMilliseconds)) milliseconds"
 
 Write-Host "********************************************" -ForegroundColor Green
 Write-Host "Part 2" -ForegroundColor Yellow
@@ -40,5 +40,5 @@ $timer = Measure-Command {
         }
     }
 }
-Write-Host "Execution took $([math]::Round($timer.TotalMilliseconds)) milliseconds"
+Write-Host "Elapsed time $([math]::Round($timer.TotalMilliseconds)) milliseconds"
 Write-Host "********************************************" -ForegroundColor Green
