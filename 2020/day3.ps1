@@ -16,18 +16,14 @@ Function SlopeRide {
         $inputData
     )
 
-    $dataMapWidth = $inputData[0].Length
+    $dataMapWidth = $inputData[0].Length #Calculate once, shaves some time
     $xPosition = 1
     $yPosition = 1
     $treesFound = 0
     for ($yPosition = $stepDown; $yPosition -le $inputData.Count - $stepDown; $yPosition += $stepDown) {
         $xPosition += $stepRight
         $currentLine = $inputData[$yPosition]
-    
-        if ($xPosition -gt ($dataMapWidth)) {
-            $xPosition = ($xPosition % $dataMapWidth) 
-        }
-    
+        $xPosition = ($xPosition % $dataMapWidth) 
         $currentPos = $currentLine[$xPosition - 1]
         if ($currentPos -match "#") {
             $treesFound++
@@ -57,14 +53,13 @@ $totalRuns = @(
     @{Description = "Slope 5"; StepDown = 2; StepRight = 1; InputData = $inputData }
 )
 
-$totalProduct = 0
+$totalProduct = 1
 $timer = Measure-Command {
 foreach ($run in $totalRuns) {
     $result = SlopeRide -stepDown $run.StepDown -stepRight $run.StepRight -inputData $run.InputData
     $Trees += $result
     Write-Host "Found $result trees in $($run.Description)"
-    if ($totalProduct -eq 0){ $totalProduct = $result }
-    else { $totalProduct = $totalProduct * $result }
+    $totalProduct = $totalProduct * $result
 }
 }
 Write-Host "Product of all trees found in all slopes is $totalProduct"
