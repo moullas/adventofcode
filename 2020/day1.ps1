@@ -5,6 +5,7 @@ Set-Location $PSScriptRoot
 Write-Host "********************************************" -ForegroundColor Green
 Write-Host "* Advent of Code $aocYear - Solution for Day $aocDay *" -ForegroundColor Yellow
 Write-Host "********************************************" -ForegroundColor Green
+Write-Host "Part 1" -ForegroundColor Yellow
 [int[]]$inputData = Get-Content $inputFile
 $breakPart = $false
 $timer = Measure-Command {
