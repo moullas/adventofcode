@@ -28,7 +28,7 @@ Write-Host "Part 2" -ForegroundColor Yellow
 $validPasswords = 0
 $timer = Measure-Command {
     foreach ($dataLine in $inputData) {
-        $resultCount = 0
+        #$resultCount = 0
         $data = ($dataLine.Replace(":", "")).Replace("-", " ").Split(" ")
         $passPos1 = [int]($data[0]) - 1 #-1 to account for non index-zero
         $passPos2 = [int]($data[1]) - 1
