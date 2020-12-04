@@ -1,6 +1,6 @@
 $aocYear = "2020"
 $aocDay = 1
-$inputFile = "day1input.txt"
+$inputFile = "day$($aocDay)input.txt"
 Set-Location $PSScriptRoot
 Write-Host "********************************************" -ForegroundColor Green
 Write-Host "* Advent of Code $aocYear - Solution for Day $aocDay *" -ForegroundColor Yellow
