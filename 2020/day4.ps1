@@ -43,8 +43,6 @@ Function CheckPassport {
     Return $valid
 }
 
-
-
 $pass = $null
 $passports = $null
 $passports = @()
